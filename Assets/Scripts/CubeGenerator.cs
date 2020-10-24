@@ -8,12 +8,12 @@ using Random = UnityEngine.Random;
 
 public class CubeGenerator : MonoBehaviour
 {
-    public GameObject[] cubes;
+    public GameObject[] colors;
     //points where the cube will be instantiated
     public Transform[] points;
     //the time interval to generate a cube(according to the bgm)
     public float beat;
-    //the remain
+    //count time to xontrol the update loop
     private float timer;
     // Start is called before the first frame update
     void Start()
@@ -26,16 +26,16 @@ public class CubeGenerator : MonoBehaviour
     {
         if(timer > beat)
         {   
-            //randomly generate color and directions
-            GameObject cube = Instantiate(cubes[Random.Range(0, 2)], points[Random.Range(0, 4)]);
-            //make cube generated do not move
+            //randomly generate color and points
+            GameObject cube = Instantiate(colors[Random.Range(0, 2)], points[Random.Range(0, 4)]);
+            //make sure that cube is generated at the set point
             cube.transform.localPosition = Vector3.zero;
             //change cube randomly in four directions, up/down/left/right
             cube.transform.Rotate(transform.forward, 90 * Random.Range(0, 4));
             //update timer
             timer -= beat;
         }
-
+        // add once at each frame
         timer += Time.deltaTime;
     }
 }
