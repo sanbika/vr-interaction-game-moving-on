@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8665516293383941370}
   - component: {fileID: 8420844410685813977}
   - component: {fileID: 6456256593917850164}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: WhiteCube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -119,7 +119,7 @@ GameObject:
   - component: {fileID: 1028340279562402769}
   - component: {fileID: 3630775572024761489}
   - component: {fileID: 4639775245074429102}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Direction_sign
   m_TagString: Untagged
   m_Icon: {fileID: 0}
