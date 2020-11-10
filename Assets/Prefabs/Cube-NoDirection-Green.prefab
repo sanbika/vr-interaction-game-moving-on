@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7508995696450143411}
   - component: {fileID: 6838232448138802560}
   - component: {fileID: 1356108517340847093}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Cube-NoDirection-Green
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,3 +106,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac3514a8b65af04438092fdadc51165a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: green
+  directionType: no
+  isBomb: 0

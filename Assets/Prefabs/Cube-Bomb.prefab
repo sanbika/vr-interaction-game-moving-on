@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5674467287154909916}
   - component: {fileID: 6827349829852465408}
   - component: {fileID: -4057036758894788541}
-  m_Layer: 12
+  m_Layer: 8
   m_Name: Cube-Bomb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2ebcbf9fe6ad7fd4789b678eb51f2747, type: 2}
+  - {fileID: 2100000, guid: c176f9fe86db86e4dbc78e5fa6cb602f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -106,3 +106,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac3514a8b65af04438092fdadc51165a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: 
+  directionType: 
+  isBomb: 1

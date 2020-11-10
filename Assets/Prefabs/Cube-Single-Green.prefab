@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1583346360682583673}
   - component: {fileID: 4934048482450516776}
   - component: {fileID: 5692525217777317404}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,8 +107,8 @@ GameObject:
   - component: {fileID: 9004787493140879655}
   - component: {fileID: 5055079816295693473}
   - component: {fileID: 1299632466163393574}
-  m_Layer: 9
-  m_Name: Cube-Green-Single 1
+  m_Layer: 8
+  m_Name: Cube-Single-Green
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -201,3 +201,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac3514a8b65af04438092fdadc51165a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: green
+  directionType: single
+  isBomb: 0
