@@ -7,15 +7,21 @@ public class Saber : MonoBehaviour
 {
   
     public LayerMask layer;
-    public string saberColor;
     private Vector3 previousPosition;
+    public string saberColor;
+    public bool doubleDirCubeCutStatus; //return true if this saber perform the right operations
+    private GameObject[] hands;
+    
+
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        hands = GameObject.FindGameObjectsWithTag("hand");
     }
 
     // Update is called once per frame
+    // 30 frames/sec
     void Update()
     {
         //Ray stores position and direction info
@@ -35,17 +41,20 @@ public class Saber : MonoBehaviour
             var cubeObj = hit.collider.gameObject;
             //??????????????Difference between collider and transform?????
 
+            //twoHand = 0;
             if (cube.isBomb)
             {
                 //TODO points decrease
                 //TODO false effect
+                Debug.Log("Bomb!");
             }
             else
             {
-                if (cube.color != this.saberColor)
+                if (cube.color != this.saberColor && cube.color != "white")
                 {
                     //TODO points decrease
                     //TODO false effect
+                    Debug.Log("Wrong Color!");
                 }
                 else
                 {
@@ -57,29 +66,45 @@ public class Saber : MonoBehaviour
                     else if (cube.directionType == "single")
                     {
                         //to check if the cut direction right
-                        if (Vector3.Angle(transform.position - previousPosition, hit.transform.up) > 130)
+                        if (Vector3.Angle(transform.position - previousPosition, hit.transform.up) > 120)
                         {
                             Destroy(cubeObj);
                         }
 
                     }
+                    else if (cube.directionType == "double")
+                    {
+                        //to check if the cut direction right
+                        if (Vector3.Angle(transform.position - previousPosition, hit.transform.up) > 120)
+                        {
+                            doubleDirCubeCutStatus = true;
+                            var hand1 = hands[0].GetComponent<Saber>();
+                            var hand2 = hands[1].GetComponent<Saber>();
+                            Debug.Log("HAND2"+hand2.transform.position);
+                            Debug.Log("HAND1" + hand1.transform.position);
+                            Debug.Log("-----------------------");
+                            if (hand1.doubleDirCubeCutStatus && hand2.doubleDirCubeCutStatus)
+                            {
+                                Destroy(cubeObj);
+
+                            }
+                            doubleDirCubeCutStatus = false;
+                            
+                            
+                        }
+
+                    }
+
+
                 }
 
             }
         }
-        //below is the previous code
-/*        if (Physics.Raycast(hitRay, out hit, distance, layer))
-        {
-            //to check if the cut direction right
-            if (Vector3.Angle(transform.position - previousPosition, hit.transform.up) > 110)
-            {
-                Destroy(hit.transform.gameObject);
-            }
-        }*/
 
         previousPosition = transform.position;
         
     }
+
 }
 
 //gameObject.layer是获得对应layer的数字
@@ -127,4 +152,6 @@ public class Saber : MonoBehaviour
  *      2. single
  *      3. double
  * No need to transfer in layer Variable but need to add color attribute to cube, create betable layerMask, and check with color attribute
+ * 
+ * (USED)The second method is to use a uniform layer called 'cube', and both color and direction are properties of these cubes.
 */
