@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3521599573230762157}
   - component: {fileID: 7632333688320486993}
   - component: {fileID: 8278129589458362017}
+  - component: {fileID: 4172055230067076456}
   m_Layer: 0
   m_Name: Obstacles-down
   m_TagString: Untagged
@@ -93,3 +94,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4172055230067076456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 219850728975101993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac3514a8b65af04438092fdadc51165a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: both
+  type: obstacle

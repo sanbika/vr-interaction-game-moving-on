@@ -6,8 +6,7 @@ using UnityEngine;
 public class CubeBehavior : MonoBehaviour
 {
     public string color;
-    public string directionType;
-    public Boolean isBomb;
+    public string type;
 
     // Start is called before the first frame update
     void Start()

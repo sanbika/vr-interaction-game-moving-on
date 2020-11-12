@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 918903809430815249}
   - component: {fileID: 5406364514701097439}
   - component: {fileID: 4724420496677105984}
-  - component: {fileID: 6010659167808596697}
+  - component: {fileID: -2349046896377877913}
   m_Layer: 8
   m_Name: Cube-Double
   m_TagString: Untagged
@@ -96,7 +96,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6010659167808596697
+--- !u!114 &-2349046896377877913
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -108,9 +108,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac3514a8b65af04438092fdadc51165a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: white
-  directionType: double
-  isBomb: 0
+  color: both
+  type: doubleDirCube
 --- !u!1 &1613256366482492131
 GameObject:
   m_ObjectHideFlags: 0

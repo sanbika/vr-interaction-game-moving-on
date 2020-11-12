@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1725352693441909369}
   - component: {fileID: 3464033915143902443}
   - component: {fileID: 8127827627419607}
-  - component: {fileID: 6279117481037414555}
+  - component: {fileID: 3856814323834234039}
   m_Layer: 8
   m_Name: Cube-NoDirection-Gray
   m_TagString: Untagged
@@ -94,7 +94,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6279117481037414555
+--- !u!114 &3856814323834234039
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -107,5 +107,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   color: gray
-  directionType: no
-  isBomb: 0
+  type: noDirCube
