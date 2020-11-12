@@ -650,7 +650,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   saberColor: gray
-  doubleDirCubeCutStatus: 0
+  communicateNow: 0
+  isLeftHand: 0
+  doubleDirCube: {fileID: 0}
 --- !u!114 &1671637302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -667,7 +669,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   saberColor: green
-  doubleDirCubeCutStatus: 0
+  communicateNow: 0
+  isLeftHand: 1
+  doubleDirCube: {fileID: 0}
 --- !u!1 &1969737416
 GameObject:
   m_ObjectHideFlags: 0

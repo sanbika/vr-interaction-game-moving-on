@@ -9,7 +9,9 @@ public class Saber : MonoBehaviour
     public LayerMask layer;
     private Vector3 previousPosition;
     public string saberColor;
-    public bool doubleDirCubeCutStatus; //return true if this saber perform the right operations
+    public bool communicateNow; // return true if another saber peform the right operations
+    public bool isLeftHand; // check if it is left hand
+    public GameObject doubleDirCube; // store the double direction cube that touched successfully by another hand
     private GameObject[] hands;
     
 
@@ -30,6 +32,8 @@ public class Saber : MonoBehaviour
         RaycastHit hit;
         //length of ray
         float distance = 1.1f;
+        var hand1 = hands[0].GetComponent<Saber>();
+        var hand2 = hands[1].GetComponent<Saber>();
 
         //(to be deleted!)see the ray in game to do adjustment
         //Debug.DrawRay(transform.position, transform.forward * distance);
@@ -47,6 +51,7 @@ public class Saber : MonoBehaviour
                 //TODO points decrease
                 //TODO false effect
                 Debug.Log("Bomb!");
+                Debug.Log("-----------------------");
             }
             else
             {
@@ -55,6 +60,7 @@ public class Saber : MonoBehaviour
                     //TODO points decrease
                     //TODO false effect
                     Debug.Log("Wrong Color!");
+                    Debug.Log("-----------------------");
                 }
                 else
                 {
@@ -70,6 +76,14 @@ public class Saber : MonoBehaviour
                         {
                             Destroy(cubeObj);
                         }
+                        else
+                        {
+                            //TODO false effect
+                            //TODO disable this cube to avoid modifying operation 
+                            Debug.Log("Wrong direction");
+                            Debug.Log("-----------------------");
+
+                        }
 
                     }
                     else if (cube.directionType == "double")
@@ -77,32 +91,53 @@ public class Saber : MonoBehaviour
                         //to check if the cut direction right
                         if (Vector3.Angle(transform.position - previousPosition, hit.transform.up) > 120)
                         {
-                            doubleDirCubeCutStatus = true;
-                            var hand1 = hands[0].GetComponent<Saber>();
-                            var hand2 = hands[1].GetComponent<Saber>();
-                            Debug.Log("HAND2"+hand2.transform.position);
-                            Debug.Log("HAND1" + hand1.transform.position);
-                            Debug.Log("-----------------------");
-                            if (hand1.doubleDirCubeCutStatus && hand2.doubleDirCubeCutStatus)
-                            {
-                                Destroy(cubeObj);
 
+                            if (isLeftHand)
+                            {
+                                hand2.communicateNow = true;
+                                hand2.doubleDirCube = cubeObj;
                             }
-                            doubleDirCubeCutStatus = false;
-                            
-                            
+                            else
+                            {
+                                hand1.communicateNow = true;
+                                hand1.doubleDirCube = cubeObj;
+                            }   
+
+                        }
+                        else
+                        {
+                            //TODO disable this cube to avoid modifying operation 
                         }
 
                     }
-
 
                 }
 
             }
         }
 
+        if (communicateNow)
+        {
+            if(Physics.Raycast(hitRay, out hit, distance, layer))
+            {
+                var cubeObj = doubleDirCube;
+                if (Vector3.Angle(transform.position - previousPosition, hit.transform.up) > 120)
+                {
+                    Destroy(cubeObj);
+                        
+                }
+                else 
+                {
+                    //TODO disable this cube to avoid modifying operation 
+                }
+
+                communicateNow = false;
+            }
+        }
+
+
         previousPosition = transform.position;
-        
+
     }
 
 }
@@ -154,4 +189,12 @@ public class Saber : MonoBehaviour
  * No need to transfer in layer Variable but need to add color attribute to cube, create betable layerMask, and check with color attribute
  * 
  * (USED)The second method is to use a uniform layer called 'cube', and both color and direction are properties of these cubes.
+ * 
+ * 
+ * 
+ * DOUBLE TYPE PROBLEM
+ * 
+ * 只有先碰到的那个可以进入这个if判断。那么重新初始化其实并不适合放在condition结束的时刻。
+ * 不可以想着在这个if中完成所有，需要增加延时效果，等到两个手都进入一次这个循环才判断。
+ * 
 */

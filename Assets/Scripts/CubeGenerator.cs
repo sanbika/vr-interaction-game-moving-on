@@ -27,8 +27,7 @@ public class CubeGenerator : MonoBehaviour
         if(timer > beat)
         {
             //randomly generate color and points
-            //TESTING in types Random.Range(0, 6)
-            GameObject cube = Instantiate(types[2], points[Random.Range(0, 4)]);
+            GameObject cube = Instantiate(types[Random.Range(0, 6)], points[Random.Range(0, 4)]);
             //make sure that cube is generated at the set point
             cube.transform.localPosition = Vector3.zero;
             //change cube randomly in four directions, up/down/left/right
