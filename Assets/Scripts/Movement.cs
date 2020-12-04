@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CubeBehavior : MonoBehaviour
+public class Movement : MonoBehaviour
 {
-    public string color;
-    public string type;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +13,6 @@ public class CubeBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //transform.position += Time.deltaTime * transform.forward * 2;
+        transform.position += Time.deltaTime * transform.forward * 3;
     }
 }

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 150795696312299938}
   - component: {fileID: 3946453787794561748}
   - component: {fileID: 3943751507321932003}
+  - component: {fileID: 8393012890892829436}
   m_Layer: 8
   m_Name: Cube-Single-Green
   m_TagString: Untagged
@@ -109,6 +110,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   color: green
   type: singleDirCube
+--- !u!114 &8393012890892829436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2650625878160994523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9faa368ec2dcfb04381c00a79d0f3647, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8909274415375243194
 GameObject:
   m_ObjectHideFlags: 0

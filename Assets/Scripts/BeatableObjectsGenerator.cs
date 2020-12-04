@@ -6,7 +6,7 @@ using System.Diagnostics;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class CubeGenerator : MonoBehaviour
+public class BeatableObjectsGenerator : MonoBehaviour
 {
     //for betable direction cube
     public GameObject[] dirCubeTypes;
@@ -19,7 +19,7 @@ public class CubeGenerator : MonoBehaviour
 
     //the time interval to generate a cube(according to the bgm)
     public float beat;
-    //count time to xontrol the update loop
+    //count time to control the update loop
     private float timer;
     // Start is called before the first frame update
     void Start()
@@ -33,23 +33,23 @@ public class CubeGenerator : MonoBehaviour
         if(timer > beat)
         {
             var probability = Random.Range(0, 10);
-            if(probability < 6)
+            if(probability < 8)
             {
-                //randomly generate color and points
                 GameObject cube = Instantiate(dirCubeTypes[Random.Range(0, 6)], dirCubePoints[Random.Range(0, 4)]);
                 //make sure that cube is generated at the set point
                 cube.transform.localPosition = Vector3.zero;
-                //change cube randomly in four directions, up/down/left/right
                 cube.transform.Rotate(transform.forward, 90 * Random.Range(0, 4));
+                /* GameObject obastacle = Instantiate(obstaclesTypes[Random.Range(0, 1)], obstaclePoints[Random.Range(0, 2)]);
+                 obastacle.transform.localPosition = Vector3.zero;*/
             }
-            else if( 6<= probability && probability < 8)
+            else if( probability == 8)
             {
                 GameObject obastacle = Instantiate(obstaclesTypes[Random.Range(0, 1)], obstaclePoints[Random.Range(0, 2)]);
                 obastacle.transform.localPosition = Vector3.zero;
             }
             else
             {
-                GameObject prop = Instantiate(obstaclesTypes[Random.Range(0, 1)], dirCubePoints[Random.Range(0, 4)]);
+                GameObject prop = Instantiate(propsTypes[Random.Range(0, 1)], dirCubePoints[Random.Range(0, 4)]);
                 prop.transform.localPosition = Vector3.zero;
             }
 

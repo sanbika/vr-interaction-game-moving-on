@@ -166,7 +166,7 @@ public class Saber : MonoBehaviour
  *     double dir - both
  * The first method is to create appropriate layer for them:
  *1.color
- * 2.direction
+ *2.direction
  * If I use color layer to distinguish them, there are 3 types:
  *1.green
  * 2.gray
